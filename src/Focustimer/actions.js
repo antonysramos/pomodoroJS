@@ -1,5 +1,16 @@
+import state from "./state.js"
+
 export function toggleRunning () {
-  console.log('toggleRunning function')
+  state.isRunning = !state.isRunning
+
+  if (state.isRunning === true) {
+    document.documentElement.classList.add('running')
+  } else {
+    document.documentElement.classList.remove('running')
+  }
+
+  //  OU
+  // state.isRunning = document.documentElement.classList.toggle('running')
 }
 
 export function set () {
@@ -7,9 +18,20 @@ export function set () {
 }
 
 export function reset () {
-  console.log('reset function')
+  state.isRunning = false
+  state.isRunning = document.documentElement.classList.remove('running')
 }
 
 export function toggleMusic () {
-  console.log('toggleMusic function')
-}
+  // state.isMute = !state.isMute
+
+  // if (state.isMute === false) {
+  //   document.documentElement.classList.add('music-on')
+  // } else {
+  //   document.documentElement.classList.remove('music-on')
+
+  // OU
+
+  state.isMute = document.documentElement.classList.toggle('music-on')
+  // o toggle tem uma resposta booleana, true ou false, por isso pode ser usado assim
+  }
